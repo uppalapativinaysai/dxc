@@ -1,0 +1,22 @@
+CREATE TABLE employee
+(
+ employee_id Number(10),
+ employee_name VARCHAR2(20),
+ employee_address VARCHAR2(30),
+ date_of_birth DATE,
+ date_of_joining DATE,
+ salary Number(10)
+)
+
+INSERT into employee values (1, 'vinay', 'Hyderabad ', '07/09/1995', '09/02/2020', 15000);
+
+INSERT into employee values (2, 'sai', 'chennai', '08/12/1998', '09/02/2020', 25000);
+
+INSERT into employee values (3, 'uppalapati', 'Nellore', '10/19/1973', '09/02/2010', 45000);
+
+INSERT into employee values (4, 'suresh', 'mumbai', '08/10/1974', '09/02/2012', 55000);
+
+INSERT into employee values (5, 'naveen', 'medak', '11/23/2002', '06/03/2020', 20000);
+
+
+select * from employee;
