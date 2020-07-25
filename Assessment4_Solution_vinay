@@ -1,0 +1,138 @@
+Step1: Log In
+Log in by entering your log-in name/password. In the menu on the lower-left, click
+ 
+Step2: Create directories
+1. Start a terminal window by clicking K → System → Console
+1.Check your current location. What does it say?
+Ans : pwd
+        It is showing the directory and user name : /home/vinay
+2. If you are not in your home directory, change your current location to your home directory.
+Ans : cd ~
+        Or use cd .. to go back and enter cd (directory name) and cd (username)
+3. List all files in your current location. How many files do you have?
+Ans : ls -l
+        128
+ 
+4. If you don't already have one, create a directory called “labs”, then cd to “labs”, and
+create a directory called “linux_lab”.
+Ans : mkdir labs
+        cd labs
+        /labs$ mkdir linux_lab
+5. Change directory to linux_lab.
+Ans :/labs$ cd linux_lab
+  Output:     /labs/linux_lab$
+6. Check your current location.
+Ans : /labs/linux_lab$ pwd
+       /home/vinay/labs/linux_lab
+7. Create subdirectories called michigan, indiana, and ohio under this directory.
+Ans : labs/linux_lab$ mkdir michigan
+         labs/linux_lab$ mkdir indiana
+         labs/linux_lab$ mkdir ohio
+8. List all files in your current location and check that they should be 3 subdirectories.
+Ans : labs/linux_lab$ ls
+Output: Indiana michigan ohio
+9. Now move to the michigan directory with the cd command.
+Ans : labs/linux_lab$ cd michigan
+10. Create 2 subdirectories called detroit and lansing.
+Ans : labs/linux_lab/michigan$ mkdir detroit
+        labs/linux_lab/michigan$ mkdir lansing
+11. Examine the differences between ls and ls –l. What does column 5 show ?
+Ans :with ls : it is showing two directories—detroit and lansing
+       With ls-l: showing total 8 files appearing only two..they are Detroit and lansing at the last column.
+  5th column is showing size of directory ..4096
+12. Move to the indiana subdirectory from michigan.
+Ans : cd ..
+        cd Indiana
+output: labs/linux_lab/indiana
+13. Create other 2 subdirectories under Indiana : Indianapolis and tipton
+Ans : labs/linux_lab/Indiana$ mkdir Indianpolis
+        labs/linux_lab/Indiana$ mkdir tipton
+14. List all files, including hidden files. What is the .. file?
+ 
+Ans : ls -a or ls -la
+15. Move to the ohio subdirectory.
+Ans : cd ..
+          cd ohio
+         labs/linux_lab/ohio$
+16. Create other 2 subdirectories. What happens if you type cd ashland?
+Ans : labs/linux_lab/ohio$ mkdir ohio1
+        labs/linux_lab/ohio$ mkdir ohio2
+     here if we type cd Ashland…it is showing error as no such file or directory not found…as we didn’t create that directory
+17. Create a text file
+a) Type your name and your address.
+b) Save the document and name it “address.txt” in your linux_lab folder.
+Solution:
+    labs/linux_lab$ cat > address.txt
+ 
+18. Look at the contents of address.txt from the command line.
+Ans : cat address.txt
+19. Copy your “address.txt” file to the assigned subdirectories (lansing, indianapolis, and
+columbus).
+Ans : labs/linux_lab$ cp address.txt ./michigan/lansing
+         labs/linux_lab/michigan/lansing/cp address.txt ./../../Indiana/Indianapolis
+         labs/linux_lab/michigan/lansing/cp address.txt ./../../../columbus
+ 
+20. Write down to revoke write and execute from the address file from everyone ?
+Ans : labs/linux_lab$ ls                  : labs/linux_lab$ cat address.txt labs/linux_lab/michigan/lansing$ ls : labs/linux_lab/michigan/lansing$ cat address.txt
+labs/linux_lab/indiana/indianapolis$ ls : labs/linux_lab/indiana/indianapolis$ cat address.txt
+labs/linux_lab/ohio/ohio1$ ls : labs/linux_lab/ohio/ohio1$ cat address.txt
+       
+ 
+21. Write down to grant all the permission to user for address file (Use Digits)
+Ans :chmod 700 address.txt
+ 
+22. Write down a command to give read permission to address file to a user “Kapoor” ?
+Ans : setfacl -m u:Kapoor:r address.txt
+ 
+23. Rename address.txt to mycurrentaddress.txt
+Ans : mv address.txt mycurrentaddress.txt
+ 
+24. use grep to print the city name complete line from mycurrentaddress.txt
+Ans : grep -i “nellore” mycurrentaddress.txt
+ 
+25. Write the command to Install banner command ?
+Ans : sudo apt install sysvbanner
+ 
+--------------YAML & JSON -----------------
+ 
+Create a YAML and JSON file for storing productdetails such as product, price, quantity, orderNumber .
+1) OrderNumber will further divided into orderDate and OrderInvoiceValue.
+2) product will be further divided into productName productDescription and productRating
+Solution 1 (JSON):
+{
+ "productDetails": [
+   {
+     "product": [
+       "productName",
+       "productDiscription",
+       "productRating"
+     ]
+   },
+   "price",
+   "quantity",
+   {
+     "orderNumber": [
+       "orderDate",
+       "orderInvoiceValue"
+     ]
+   }
+ ]
+}
+ 
+ 
+ 
+ 
+Solution 2 (YAML):
+---
+productDetails:
+ - product:
+    - productName
+    - productDiscription
+    - productRating
+   
+ - price
+ - quantity
+ - orderNumber:
+      - orderDate
+      - orderInvoiceValue
+ 
